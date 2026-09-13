@@ -35,48 +35,6 @@ const contributors = [
   'Ahmed Ratnani',
 ];
 
-const timeline = [
-  {
-    when: '2019',
-    text:
-      "Development starts at the Max Planck Institute for Plasma Physics (IPP), begun by Ahmed Ratnani and " +
-      "Florian Holderied on top of the Finite Element Exterior Calculus (FEEC) machinery of Psydac.",
-  },
-  {
-    when: '2019 – 2025',
-    text:
-      "STRUPHY — Structure-Preserving Hybrid Physics code — grows through versions 1.x and 2.x on the institute's " +
-      'internal GitLab, adding fluid, kinetic and hybrid models, particle-in-cell and SPH methods, and support ' +
-      'for MHD equilibria.',
-  },
-  {
-    when: 'Nov 2025 — v3.0.0',
-    text:
-      'The project moves to GitHub and is refactored around an explicit, object-oriented API: species, variables ' +
-      "and propagators become classes, Python launch files replace .yml parameter files, and the new Simulation " +
-      'class ties a run together.',
-  },
-  {
-    when: 'Dec 2025 – Feb 2026 — v3.0.1 – v3.0.2',
-    text:
-      'FEEC dependencies move onto PyPI as feectools, a public API is added (from struphy import equils), and ' +
-      'Fortran becomes the default compiled backend.',
-  },
-  {
-    when: 'Feb – Jun 2026 — v3.0.3 – v3.2.0',
-    text:
-      'The Simulation and PostProcessor classes, structured logging, a refactored Derham and weighted mass ' +
-      'operators, and an expanded documentation set (quickstart, user guide, tutorials, developer guide) round ' +
-      'out the Struphy 3 series.',
-  },
-  {
-    when: 'Today',
-    text:
-      'Struphy is released on PyPI, documented at struphy-hub.github.io/struphy, and developed openly on GitHub ' +
-      'under the MIT license.',
-  },
-];
-
 const publications = [
   {
     citation:
@@ -108,17 +66,17 @@ const publications = [
 ---
 
 <Layout
-  title="Team and history — Struphy"
-  description="The maintainers and developers behind Struphy, and a timeline of the project from its 2019 origins to the current Struphy 3 series."
+  title="Team — Struphy"
+  description="The maintainers and developers behind Struphy."
 >
   <main>
     <section class="intro" aria-labelledby="page-title">
       <p class="eyebrow">About</p>
-      <h1 id="page-title">Team and history</h1>
+      <h1 id="page-title">Team</h1>
       <p>
         Struphy is developed at the <a href="https://www.ipp.mpg.de/">Max Planck Institute for Plasma Physics</a>,
         with contributions from researchers and students at several institutions. This page introduces the people
-        behind the code and the milestones since the project began.
+        behind the code.
       </p>
     </section>
 
@@ -171,23 +129,6 @@ const publications = [
       </p>
     </section>
 
-    <section class="section" aria-labelledby="history-title">
-      <h2 id="history-title">History</h2>
-      <p class="lead">From a first commit in 2019 to the current Struphy 3 series.</p>
-      <ol class="timeline">
-        {timeline.map((entry) => (
-          <li>
-            <span class="when">{entry.when}</span>
-            <span class="text">{entry.text}</span>
-          </li>
-        ))}
-      </ol>
-      <p class="footnote">
-        See the full <a href="https://github.com/struphy-hub/struphy/blob/main/CHANGELOG.md">changelog</a> for
-        every release.
-      </p>
-    </section>
-
     <section class="section" aria-labelledby="publications-title">
       <h2 id="publications-title">Selected publications</h2>
       <p class="lead">Research behind Struphy's structure-preserving numerical methods.</p>
@@ -231,15 +172,5 @@ const publications = [
   .footnote{max-width:760px;margin-top:16px;color:var(--muted);font-size:.86rem}
   .footnote a,.publications a{color:var(--cyan)}
 
-  .timeline{display:grid;gap:14px;max-width:820px;margin:0;padding:0;list-style:none}
-  .timeline li{display:grid;grid-template-columns:minmax(150px,200px) 1fr;gap:18px;padding:12px 0 12px 14px;border-left:2px solid var(--rule)}
-  .when{color:var(--muted);font:600 .78rem/1.5 var(--mono)}
-  .text{color:var(--paper);font-size:.92rem;line-height:1.55}
-
   .publications{display:grid;gap:12px;max-width:840px;margin:0;padding-left:22px;color:var(--muted);font-size:.88rem;line-height:1.55}
-
-  @media(max-width:640px){
-    .timeline li{grid-template-columns:1fr}
-    .when{margin-bottom:-4px}
-  }
 </style>
