@@ -128,12 +128,28 @@ const publications = [
       <div class="people">
         {coreTeam.map((person) => (
           <article class="person">
-            <h3>{person.name}</h3>
-            <p class="role">{person.role}</p>
-            <p class="affiliation">{person.affiliation}</p>
-            {person.github && (
-              <a class="handle" href={`https://github.com/${person.github}`}>@{person.github}</a>
+            {person.github ? (
+              <img
+                class="avatar"
+                src={`https://github.com/${person.github}.png?size=160`}
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              />
+            ) : (
+              <span class="avatar avatar-placeholder" aria-hidden="true">
+                {person.name.split(' ').map((part) => part[0]).join('')}
+              </span>
             )}
+            <div class="person-info">
+              <h3>{person.name}</h3>
+              <p class="role">{person.role}</p>
+              <p class="affiliation">{person.affiliation}</p>
+              {person.github && (
+                <a class="handle" href={`https://github.com/${person.github}`}>@{person.github}</a>
+              )}
+            </div>
           </article>
         ))}
       </div>
@@ -200,7 +216,10 @@ const publications = [
   .lead{max-width:760px;margin:0 0 22px;color:var(--muted)}
 
   .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-  .person{padding:18px 20px;border:1px solid var(--rule)}
+  .person{display:flex;gap:14px;padding:18px 20px;border:1px solid var(--rule)}
+  .avatar{flex:none;width:56px;height:56px;border:1px solid var(--rule);border-radius:50%;object-fit:cover}
+  .avatar-placeholder{display:flex;align-items:center;justify-content:center;background:var(--accent-wash);color:var(--cyan);font:600 .9rem var(--mono)}
+  .person-info{min-width:0}
   .person h3{margin:0 0 6px;font-size:1.02rem}
   .person p{margin:0}
   .role{color:var(--cyan);font-size:.82rem}
